@@ -7,25 +7,16 @@ app.listen(3000, () => {
 
 /* CODE YOUR API HERE */
 
-// GET ALL DEVICES
-app.get('/', (req, res) => {
-    const devices = db.get('devices').value();
-    res.send(devices);
-})
-
 // GET AC
-app.get('/ac', (req, res) => {
+app.get('/api/devices/ac/ac1', (req, res) => {
     // Allowing us to use querys in our request handling
-    const activate = req.query.activate === 'on' ? true : false;
+    const power = req.query.power === 'on' ? true : false;
 
     // Using the diffrent functions included in the assignment
-    const result = db.get('devices').find({ id : 'AC1' }).assign({ on : activate }).value()
+    const result = db.get('devices').find({ id : 'AC1' }).assign({ on : power }).value()
 
-    console.log(activate);
+    console.log(power);
     console.log(result);
-
-    // Updating the fontend state
-    db.update();
 
     if(result){
         res.send(result)
@@ -33,18 +24,18 @@ app.get('/ac', (req, res) => {
     else{
         res.send('Unable to find device');
     }
+
+    // Updating the fontend state
+    update();
 });
 
 // GET BLIND
-app.get('/blind', (req, res) => {
+app.get('/api/devices/blinds/bli1', (req, res) => {
     // Allowing us to use querys in our request handling
-    const activate = req.query.activate === 'on' ? true : false;
+    const power = req.query.power === 'on' ? true : false;
 
     // Using the diffrent functions included in the assignment
-    const result = db.get('devices').find({ id : 'BLI1' }).assign({ on : activate }).value()
-
-    // Updating the fontend state
-    db.update();
+    const result = db.get('devices').find({ id : 'BLI1' }).assign({ on : power }).value()
 
     if(result){
         res.send(result)
@@ -52,18 +43,18 @@ app.get('/blind', (req, res) => {
     else{
         res.send('Unable to find device');
     }
+
+    // Updating the fontend state
+    update();
 });
 
 // GET LIGHT 1
-app.get('/lig1', (req, res) => {
+app.get('/api/devices/lights/lig1', (req, res) => {
     // Allowing us to use querys in our request handling
-    const activate = req.query.activate === 'on' ? true : false;
+    const power = req.query.power === 'on' ? true : false;
 
     // Using the diffrent functions included in the assignment
-    const result = db.get('devices').find({ id : 'LIG1' }).assign({ on : activate }).value()
-
-    // Updating the fontend state
-    db.update();
+    const result = db.get('devices').find({ id : 'LIG1' }).assign({ on : power }).value()
 
     if(result){
         res.send(result)
@@ -71,18 +62,18 @@ app.get('/lig1', (req, res) => {
     else{
         res.send('Unable to find device');
     }
+
+    // Updating the fontend state
+    update();
 });
 
 // GET LIGHT 2
-app.get('/lig2', (req, res) => {
+app.get('/api/devices/lights/lig2', (req, res) => {
     // Allowing us to use querys in our request handling
-    const activate = req.query.activate === 'on' ? true : false;
+    const power = req.query.power === 'on' ? true : false;
 
     // Using the diffrent functions included in the assignment
-    const result = db.get('devices').find({ id : 'LIG2' }).assign({ on : activate }).value()
-
-    // Updating the fontend state
-    db.update();
+    const result = db.get('devices').find({ id : 'LIG2' }).assign({ on : power }).value()
 
     if(result){
         res.send(result)
@@ -90,18 +81,18 @@ app.get('/lig2', (req, res) => {
     else{
         res.send('Unable to find device');
     }
+
+    // Updating the fontend state
+    update();
 });
 
 // GET LIGHT 3
-app.get('/lig3', (req, res) => {
+app.get('/api/devices/lights/lig3', (req, res) => {
     // Allowing us to use querys in our request handling
-    const activate = req.query.activate === 'on' ? true : false;
+    const power = req.query.power === 'on' ? true : false;
 
     // Using the diffrent functions included in the assignment
-    const result = db.get('devices').find({ id : 'LIG3' }).assign({ on : activate }).value()
-
-    // Updating the fontend state
-    db.update();
+    const result = db.get('devices').find({ id : 'LIG3' }).assign({ on : power }).value()
 
     if(result){
         res.send(result)
@@ -109,18 +100,18 @@ app.get('/lig3', (req, res) => {
     else{
         res.send('Unable to find device');
     }
+
+    // Updating the fontend state
+    update();
 });
 
 // GET CAMERA
-app.get('/camera', (req, res) => {
+app.get('/api/devices/cameras/cam1', (req, res) => {
     // Allowing us to use querys in our request handling
-    const activate = req.query.activate === 'on' ? true : false;
+    const power = req.query.power === 'on' ? true : false;
 
     // Using the diffrent functions included in the assignment
-    const result = db.get('devices').find({ id : 'CAM1' }).assign({ on : activate }).value()
-
-    // Updating the fontend state
-    db.update();
+    const result = db.get('devices').find({ id : 'CAM1' }).assign({ on : power }).value()
 
     if(result){
         res.send(result)
@@ -128,18 +119,18 @@ app.get('/camera', (req, res) => {
     else{
         res.send('Unable to find device');
     }
+
+    // Updating the fontend state
+    update();
 });
 
 // GET LOCK
-app.get('/lock', (req, res) => {
+app.get('/api/devices/locks/loc1', (req, res) => {
     // Allowing us to use querys in our request handling
-    const activate = req.query.activate === 'on' ? true : false;
+    const power = req.query.power === 'on' ? true : false;
 
     // Using the diffrent functions included in the assignment
-    const result = db.get('devices').find({ id : 'LOC1' }).assign({ on : activate }).value()
-
-    // Updating the fontend state
-    db.update();
+    const result = db.get('devices').find({ id : 'LOC1' }).assign({ on : power }).value()
 
     if(result){
         res.send(result)
@@ -147,18 +138,18 @@ app.get('/lock', (req, res) => {
     else{
         res.send('Unable to find device');
     }
+
+    // Updating the fontend state
+    update();
 });
 
 // GET VACUUM
-app.get('/vacuum', (req, res) => {
+app.get('/api/devices/vacuums/vac1', (req, res) => {
     // Allowing us to use querys in our request handling
-    const activate = req.query.activate === 'on' ? true : false;
+    const power = req.query.power === 'on' ? true : false;
 
     // Using the diffrent functions included in the assignment
-    const result = db.get('devices').find({ id : 'VAC1' }).assign({ on : activate }).value()
-
-    // Updating the fontend state
-    db.update();
+    const result = db.get('devices').find({ id : 'VAC1' }).assign({ on : power }).value()
 
     if(result){
         res.send(result)
@@ -166,18 +157,18 @@ app.get('/vacuum', (req, res) => {
     else{
         res.send('Unable to find device');
     }
+
+    // Updating the fontend state
+    update();
 });
 
 // GET SPEAKER
-app.get('/speaker', (req, res) => {
+app.get('/api/devices/speakers/spe1', (req, res) => {
     // Allowing us to use querys in our request handling
-    const activate = req.query.activate === 'on' ? true : false;
+    const power = req.query.power === 'on' ? true : false;
 
     // Using the diffrent functions included in the assignment
-    const result = db.get('devices').find({ id : 'SPE1' }).assign({ on : activate }).value()
-
-    // Updating the fontend state
-    db.update();
+    const result = db.get('devices').find({ id : 'SPE1' }).assign({ on : power }).value()
 
     if(result){
         res.send(result)
@@ -185,4 +176,7 @@ app.get('/speaker', (req, res) => {
     else{
         res.send('Unable to find device');
     }
+
+    // Updating the fontend state
+    update();
 });
